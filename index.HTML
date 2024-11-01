@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP ECC - Solicitação de Emissão de Notas Fiscais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do menu de navegação */
+        .navbar {
+            background-color: #3c8dbc;
+            color: white;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .navbar-item {
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .navbar-item:hover {
+            text-decoration: underline;
+        }
+
+        /* Conteúdo principal */
+        .container {
+            background-color: #e6e6e6;
+            max-width: 1200px;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        /* Estilo dos botões */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button-container .left-buttons,
+        .button-container .right-button {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .left-buttons .button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .right-button .button {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        /* Seção de campos */
+        .section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section label {
+            width: 200px;
+            font-weight: bold;
+            color: #3c8dbc;
+        }
+
+        .inline-fields {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .inline-fields label, .inline-fields input, .inline-fields select {
+            flex: 1;
+        }
+
+        .section input, .section select {
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        /* Tabela de produtos */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #3c8dbc;
+        }
+
+        .total {
+            font-weight: bold;
+            text-align: right;
+            padding: 10px;
+            background-color: #ffeb3b;
+        }
+
+        /* Linha de totalizador */
+        .total-row td {
+            font-weight: bold;
+            background-color: #ffeb3b;
+        }
+
+        /* Estilo do título com logo */
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title img {
+            width: 50px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegação estilo SAP ECC -->
+    <div class="navbar">
+        <img src="sap_logo.png" alt="SAP Logo">
+        <div class="navbar-item">Menu</div>
+        <div class="navbar-item">Sistema</div>
+        <div class="navbar-item">Ajuda</div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <div class="header-title">
+            <img src="sap_logo.png" alt="SAP Logo"> <!-- Certifique-se de que "sap_logo.png" está na mesma pasta do HTML -->
+            <h2>SOLICITAÇÃO DE EMISSÃO DE NOTAS FISCAIS</h2>
+        </div>
+
+        <!-- Botões abaixo do cabeçalho -->
+        <div class="button-container">
+            <div class="left-buttons">
+                <button class="button">Autorizado Emissão NF</button>
+                <button class="button">Emitir Nota Fiscal</button>
+            </div>
+            <div class="right-button">
+                <button class="button">Salvar/Atualizar</button>
+            </div>
+        </div>
+        
+        <!-- Seção de campos -->
+        <div class="section">
+            <div class="inline-fields">
+                <label>Número da solicitação</label>
+                <input type="text" value="10">
+                
+                <label>Dt. Operação</label>
+                <input type="text" value="05.03.2024">
+                
+                <label>Filial</label>
+                <input type="text" value="1014 Campo Florid">
+                
+                <label>Solicitante</label>
+                <input type="text" value="RS GONCALVES">
+            </div>
+
+            <label>Natureza da operação</label>
+            <select>
+                <option>REMESSA P/ CONSERTO</option>
+            </select>
+            
+            <label>Fornecedor</label>
+            <input type="text" value="1409553 - GENERAL MOTORS DO BRASIL LTD">
+            
+            <label>Requisição de Compras</label>
+            <input type="text" value="10718306">
+            
+            <label>Observações</label>
+            <input type="text" value="CC 1014121302">
+            
+            <label>Frete por conta</label>
+            <select>
+                <option>EMITENTE</option>
+            </select>
+            
+            <label>Transportador</label>
+            <input type="text" value="2801709">
+            
+            <div class="inline-fields">
+                <label>Valor Frete</label>
+                <input type="text" value="65,00">
+                
+                <label>Status 2</label>
+                <select>
+                    <option>1 - Valor Frete</option>
+                    <option>2 - Almoxarifado</option>
+                    <option>3 - Emitir Nota</option>
+                    <option>4 - Finalizado</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tabela de produtos -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Qtdade</th>
+                    <th>Unidade</th>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Valor Unitário</th>
+                    <th>Valor Total</th>
+                    <th>Peso Unitário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>PÇ</td>
+                    <td>9005165</td>
+                    <td>BOMBA HIDROJATEAMENTO ALT PRE L300/4 SAP</td>
+                    <td>35.000,00</td>
+                    <td>35.000,00</td>
+                    <td>250,00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>PÇ</td>
+                    <td>9001385</td>
+                    <td>RODETE ACO ASTM A148 15 D 34"X66"</td>
+                    <td>85.000,00</td>
+                    <td>85.000,00</td>
+                    <td>250,00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="5">TOTAL</td>
+                    <td>120.000,00</td>
+                    <td>500,00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
